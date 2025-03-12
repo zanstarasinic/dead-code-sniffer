@@ -76,19 +76,27 @@ def generate_report(results):
     if not results:
         print(Fore.GREEN + "No dead code found.")
         return
-    print("Dead Code Sniffer Report:")
+    print("""  
+______               _   _____           _        _____       _  __  __          
+|  _  \\             | | /  __ \\         | |      /  ___|     (_)/ _|/ _|         
+| | | |___  __ _  __| | | /  \\/ ___   __| | ___  \\ `--. _ __  _| |_| |_ ___ _ __ 
+| | | / _ \\/ _` |/ _` | | |    / _ \\ / _` |/ _ \\  `--. \\ '_ \\| |  _|  _/ _ \\ '__|
+| |/ /  __/ (_| | (_| | | \\__/\\ (_) | (_| |  __/ /\\__/ / | | | | | | ||  __/ |   
+|___/ \\___|\\__,_|\\__,_|  \\____/\\___/ \\__,_|\\___| \\____/|_| |_|_|_| |_| \\___|_|                                                
+                                                                                 """)
     for file_path in sorted(results.keys()):
         print(Style.BRIGHT + f"\n{file_path}:")
         for name, line in sorted(results[file_path].items(), key=lambda x: x[1]):
             print(f"  Line {line}: '{name}' is unused")
-    print("\nConsider reviewing these for removal.")
+
+    print(Fore.YELLOW + "\nNumber of files with dead code:", len(results))        
+    print("Consider reviewing these for removal.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Detect unused code in Python files")
-    parser.add_argument("path", help="File or folder to scan")
     parser = argparse.ArgumentParser(
     description="Detect unused code in Python files",
-    epilog="Example: python sniffer.py myproject/")
+    epilog="Example: python deadcode.py myproject/")
+    parser.add_argument("path", help="File or folder to scan")
     args = parser.parse_args()
     results = scan_path(args.path)
     generate_report(results)
