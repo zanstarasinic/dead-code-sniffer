@@ -15,7 +15,6 @@ python deadcode.py test.py
 
 Output:
 ```
-Dead Code Sniffer Report:
 test.py:
 Line 1: 'math' is unused
 Line 2: 'unused' is unused
