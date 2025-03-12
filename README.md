@@ -4,7 +4,9 @@ A lightweight Python tool to find unused functions, variables, and imports in yo
 
 ## Usage
 Run the tool with a file or folder path:
+```
 python deadcode.py <file_or_folder>
+```
 
 ## Example
 ```
