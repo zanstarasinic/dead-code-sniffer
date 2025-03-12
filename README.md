@@ -1,11 +1,26 @@
 # Dead Code Sniffer
-A simple Python tool to detect unused functions, variables, and imports in your codebase.
 
-## Features
-- Scans single `.py` files or entire directories.
-- Finds unused imports, functions, and variables.
-- Generates a report sorted by line number.
+A lightweight Python tool to find unused functions, variables, and imports in your code.
 
 ## Usage
-```bash
+Run the tool with a file or folder path:
 python deadcode.py <file_or_folder>
+
+## Example
+```
+python deadcode.py test.py
+```
+
+Output:
+```
+Dead Code Sniffer Report:
+test.py:
+Line 1: 'math' is unused
+Line 2: 'unused' is unused
+```
+
+## Support
+If this saves you time, consider supporting me on [Buy Me a Coffee!](https://buymeacoffee.com/zanw)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
